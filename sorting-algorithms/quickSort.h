@@ -11,16 +11,17 @@ void quickSortUnstableRec(vector<Comparable> &vec, int startIndex, int endIndex,
     }
 
     // Choose a partition element
-    partition = vec[startIndex];
+    partition = vec[startIndex]; reads+= 1;
 
     // Loop through vec from startIndex to endIndex
     // Keep track of where the > partition elements start
     largerElementIndex = startIndex+1;
     for (i = startIndex+1; i <= endIndex; ++i) {
+        reads += 1;
         if (vec[i] <= partition) {
             // Swap the smaller/equal item to the left of the larger items
-            temp = vec[i];
-            vec[i] = vec[largerElementIndex];
+            temp = vec[i]; reads += 1;
+            vec[i] = vec[largerElementIndex]; reads += 1;
             vec[largerElementIndex] = temp;
             // Update largerElementIndex
             ++largerElementIndex;
@@ -28,8 +29,8 @@ void quickSortUnstableRec(vector<Comparable> &vec, int startIndex, int endIndex,
     }
     // Swap the partition element into place
     if (startIndex != largerElementIndex-1) {
-        temp = vec[startIndex];
-        vec[startIndex] = vec[largerElementIndex - 1];
+        temp = vec[startIndex]; reads += 1;
+        vec[startIndex] = vec[largerElementIndex - 1]; reads += 1;
         vec[largerElementIndex - 1] = temp;
     }
 
@@ -43,7 +44,9 @@ vector<Comparable> quickSortUnstable(vector<Comparable> vec, unsigned long& read
     reads = allocations = 0;
     Comparable partition, temp;
     int i, largerElementIndex;
+    allocations += sizeof(partition) + sizeof(temp) + sizeof(i) + sizeof(largerElementIndex);
     quickSortUnstableRec(vec, 0, vec.size() - 1, partition, i, largerElementIndex, temp, reads, allocations);
+    cout << "Quick (unstable): Allocations: " << allocations << ", Reads: " << reads << endl;
     return vec;
 }
 

@@ -27,9 +27,11 @@ int main() {
         csvDataV.resize(i);
 
         unsigned long reads = 0, allocations = 0;
-        cout<< "Vector Size = " << csvDataV.size()<< ": ";
+        cout<< "Vector Size = " << csvDataV.size()<< ": "<< endl;
         bubbleSort(csvDataV, reads, allocations);
-
+        heapSort(csvDataV, reads, allocations);
+        insertionSort(csvDataV, reads, allocations);
+        cout << endl;
     }
     // TODO: sort the vector in four different ways (bubble, ?, heap, ?)
     // TODO: record the number of reads and allocations for each sort

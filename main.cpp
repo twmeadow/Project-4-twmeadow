@@ -17,7 +17,7 @@ int main() {
     // TODO: sort the vector in four different ways (bubble, ?, heap, ?)
     // TODO: record the number of reads and allocations for each sort
 
-    stabilityTest();
+    //stabilityTest();
     return 0;
 }
 

@@ -14,6 +14,7 @@ void stabilityTest();
 
 int main() {
     // TODO: Get your vector of custom data type objects ready
+
     // TODO: loop through vector sizes from 1000 to 100 in decrements of 100
     // TODO: sort the vector in four different ways (bubble, ?, heap, ?)
     // TODO: record the number of reads and allocations for each sort

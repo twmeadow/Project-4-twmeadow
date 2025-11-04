@@ -30,6 +30,7 @@ vector<Comparable> bubbleSort(vector<Comparable> vec, unsigned long& reads, unsi
         // Update numPasses
         ++numPasses;
     }
+    cout << "Bubble: Allocations: " << allocations << ", Reads: " << reads<< endl;
     return vec;
 }
 

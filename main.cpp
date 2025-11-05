@@ -15,28 +15,31 @@ using namespace std;
 void stabilityTest();
 
 int main() {
-    // TODO: Get your vector of custom data type objects ready
+    // Get your vector of custom data type objects ready
     vector<csvData> csvDataV;
     string filePath = "../Bella_Beats_Analysis_Master_Dataset_Cleaned.csv";
     getDataFromFile(csvDataV, filePath);
     shuffle(csvDataV.begin(), csvDataV.end(), mt19937(random_device{}()));
 
-    // TODO: loop through vector sizes from 1000 to 100 in decrements of 100
+    // loop through vector sizes from 1000 to 100 in decrements of 100
     for (int i = 1000; i >= 100; i -= 100)
     {
         csvDataV.resize(i);
-
         unsigned long reads = 0, allocations = 0;
+
+        // sort the vector in four different ways (bubble, insertion, heap, quick sort unstable)
+        //record the number of reads and allocations for each sort
         cout<< "Vector Size = " << csvDataV.size()<< ": "<< endl;
         bubbleSort(csvDataV, reads, allocations);
         heapSort(csvDataV, reads, allocations);
         insertionSort(csvDataV, reads, allocations);
+        quickSortUnstable(csvDataV, reads, allocations);
+
         cout << endl;
     }
-    // TODO: sort the vector in four different ways (bubble, ?, heap, ?)
-    // TODO: record the number of reads and allocations for each sort
 
-    //stabilityTest();
+
+    stabilityTest();
     return 0;
 }
 
@@ -50,9 +53,14 @@ void stabilityTest() {
     people.sortAndPrint(bubbleSort<contact>);
 
     // TODO: add other stable algorithm here
+    cout << endl << "Insertion Sort" << endl;
+    people.sortAndPrint(insertionSort<contact>);
 
     cout << endl << "Heap Sort" << endl;
     people.sortAndPrint(heapSort<contact>);
+
+    cout << endl << "Quick Sort (Unstable)" << endl;
+    people.sortAndPrint(quickSortUnstable<contact>);
 
     // TODO: add other unstable algorithm here
 }

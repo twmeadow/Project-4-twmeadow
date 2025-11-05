@@ -17,7 +17,7 @@ This tracks with the time complexities that were discussed in class, as that is 
 
 Bubble and insertion sort are both O(n^2) which is why they are the two worst. 
 After that Heap and quick are both O(n * log(n)) which is noticeably better than the other two. 
-Heap and sort are the more time efficient algorithms, with quick sort beig the best. 
+Heap and quick sort are the more time efficient algorithms, with quick sort beig the best. 
 
 The allocations graph can be seen below: 
 
@@ -43,7 +43,7 @@ This exact behaviour is mimicked for both bubble and insertion sort.
 This is the very definition of what stability means and measured, which confirms that these vectors are indeed stable. 
 
 For the unstable sorting algorithms the order is not preserved. Reusing the example from the previous paragraph, of the first name ordering for people with the last name black, we see the following result. Heap sort has the order Jordan, Sam, Blake, which is clearly not in line with the origianl ordering in the unsorted vector.
-While bubble sort actually does preserve this order for the last name Black, moving one name down the list to the last name Brown, the ordering is once again unstable. The bubble sort has the order Kelsey, Jamie, Skylar, where as the unsorted vector has the order Jame, Kelsey, Skylar which is clearly not the same. 
+While quick sort actually does preserve this order for the last name Black, moving one name down the list to the last name Brown, the ordering is once again unstable. The bubble sort has the order Kelsey, Jamie, Skylar, where as the unsorted vector has the order Jame, Kelsey, Skylar which is clearly not the same. 
 This further proves the unstability of these functions, which was theorized to begin with. 
 
 * Answers to the following questions: 
